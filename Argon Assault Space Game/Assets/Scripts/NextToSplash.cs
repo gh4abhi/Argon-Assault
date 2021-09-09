@@ -7,7 +7,15 @@ public class NextToSplash : MonoBehaviour
 {
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);  
+        int numMusicPlayers = FindObjectsOfType<NextToSplash>().Length;
+        if (numMusicPlayers > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -24,6 +32,6 @@ public class NextToSplash : MonoBehaviour
     void LoadLevelOne()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex + 1);
+        SceneManager.LoadScene(1);
     }
 }

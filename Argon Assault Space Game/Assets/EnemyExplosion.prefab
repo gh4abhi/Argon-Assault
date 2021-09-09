@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1524876074688096944}
   - component: {fileID: 1524876074688096945}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: EnemyExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,9 +47,9 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
