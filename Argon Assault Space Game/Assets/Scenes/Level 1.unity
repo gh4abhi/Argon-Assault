@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeathFX: {fileID: 1524876074688096946, guid: 65481b5d2afe3634c931241cfe14e72e,
     type: 3}
+  parent: {fileID: 832555654}
 --- !u!1001 &662929242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,6 +517,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 68.856, y: -125.51101, z: -91.86301}
+--- !u!1 &832555653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832555654}
+  m_Layer: 0
+  m_Name: SpawnedAtRuntime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &832555654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832555653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 184.72536, y: 99.46103, z: 55.785545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &938205758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -781,6 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeathFX: {fileID: 1524876074688096946, guid: 65481b5d2afe3634c931241cfe14e72e,
     type: 3}
+  parent: {fileID: 832555654}
 --- !u!1 &1377045044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 942183814875655191, guid: d869417b117d9f74d8593f21c92ea208,
@@ -801,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeathFX: {fileID: 1524876074688096946, guid: 65481b5d2afe3634c931241cfe14e72e,
     type: 3}
+  parent: {fileID: 832555654}
 --- !u!1001 &1498356390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -976,6 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeathFX: {fileID: 1524876074688096946, guid: 65481b5d2afe3634c931241cfe14e72e,
     type: 3}
+  parent: {fileID: 832555654}
 --- !u!1001 &1932593563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1150,6 +1184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDeathFX: {fileID: 1524876074688096946, guid: 65481b5d2afe3634c931241cfe14e72e,
     type: 3}
+  parent: {fileID: 832555654}
 --- !u!1001 &1160303423161739842
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class EnemyAndObstacles : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] GameObject EnemyDeathFX;
+    [SerializeField] Transform parent;
     
     void Start()
     {
@@ -28,7 +29,8 @@ public class EnemyAndObstacles : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        Instantiate(EnemyDeathFX, transform.position, Quaternion.identity);
+        GameObject fx = Instantiate(EnemyDeathFX, transform.position, Quaternion.identity);
+        fx.transform.parent = parent;
         Destroy(gameObject); 
     }
 }
