@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -6,9 +7,18 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [Tooltip("In ms^-1")] [SerializeField] float Speed = 20f;
-    [Tooltip("In m")] [SerializeField] float xRange = 5.5f;
-    [Tooltip("In m")] [SerializeField] float yRange = 3f;
+    [Tooltip("In ms^-1")] [SerializeField] float Speed = 10f;
+    [Tooltip("In m")] [SerializeField] float xRange = 6.5f;
+    [Tooltip("In m")] [SerializeField] float yRange = 4f;
+
+    [SerializeField] float positionPitchFactor = -5f;
+    [SerializeField] float controlPitchFactor = -25f;
+
+    [SerializeField] float positionYawFactor = 3f;
+
+    [SerializeField] float controlRollFactor = -25f;
+
+    float xThrow, yThrow;
 
     void Start()
     {
@@ -20,11 +30,13 @@ public class PlayerController : MonoBehaviour
     {
         HorizontalMovement();
         VerticalMovement();
+        ProcessRotation();
     }
+
 
     void HorizontalMovement()
     {
-        float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         float xOffset = xThrow * Speed * Time.deltaTime;
         float rawNewXPos = transform.localPosition.x + xOffset;
         float clampedXPos = Mathf.Clamp(rawNewXPos, -xRange, xRange);
@@ -32,10 +44,26 @@ public class PlayerController : MonoBehaviour
     }
     void VerticalMovement()
     {
-        float yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+        yThrow = CrossPlatformInputManager.GetAxis("Vertical");
         float yOffset = yThrow * Speed * Time.deltaTime;
         float rawNewYPos = transform.localPosition.y + yOffset;
         float clampedYPos = Mathf.Clamp(rawNewYPos, -yRange, yRange);
         transform.localPosition = new Vector3(transform.localPosition.x, clampedYPos, transform.localPosition.z);
+    }
+    void ProcessRotation()
+    {
+        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
+        float pitchDueToControlThrow = yThrow * controlPitchFactor;
+        float pitch = pitchDueToPosition + pitchDueToControlThrow;
+
+        float yawDueToPosition = transform.localPosition.x * positionYawFactor;
+        float yawDueToControlThrow = 0f;
+        float yaw = yawDueToPosition+yawDueToControlThrow;
+
+        float rollDueToPosition = 0;
+        float rollDueToControlThrow = xThrow*controlRollFactor;
+        float roll = rollDueToPosition+rollDueToControlThrow;
+
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
